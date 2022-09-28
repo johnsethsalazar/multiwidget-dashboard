@@ -60,4 +60,17 @@ let weather = {
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed: " + speed + "km/h";
     },
+    search: function(){
+        this.fetchWeather(document.querySelector(".search-bar").value);
+    }//Automatically get the content of the search bar and get the results.
 };
+//Search button Listener
+document.querySelector(".search button").addEventListener("click", function(){
+    weather.search();
+})
+//Enter Key Event Listener
+document.querySelector(".search-bar").addEventListener("keyup", function(event){
+    if(event.key == "Enter"){
+        weather.search();
+    }
+})
