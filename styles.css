@@ -9,7 +9,8 @@
 
 body{
     height: 100vh;
-    background: linear-gradient(to right, #ff9472, #f2709c);
+    /* background: linear-gradient(to right, #ff9472, #f2709c); */
+    background: url('https://source.unsplash.com/1600x900/?landscape');
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,14 +28,14 @@ body{
 #clock div{
     border: 2px solid black;
     border-radius: 30px;
-    background-color: white;
+    background-color: #000000d0;
     height: 100%;
     width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 60px;
-    color: #202020;
+    color: white;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     letter-spacing: 3px;
 }
