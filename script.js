@@ -1,3 +1,4 @@
+//Clock widget
 const hour = document.getElementById('hour');
 const minute = document.getElementById('minute');
 const seconds = document.getElementById('seconds');
@@ -34,6 +35,7 @@ const clock = setInterval(
         seconds.textContent = sec;
 }, 1000)
 
+//Weather widget
 let weather = {
     "apiKey": "4ed53ec99fdb4fb3c80ba66f81ff2006",
     fetchWeather: function(city){
@@ -76,3 +78,9 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event){
         weather.search();
     }
 })
+
+//To-do Widget
+// const clear = document.querySelector(".clear");
+// const dateElement = document.getElementById("date");
+// const list = document.getElementById("list");
+// const input = document.getElementById("input");

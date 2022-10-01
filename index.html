@@ -5,11 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Multiwidget Dashboard</title>
+        <link href = "css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css" />
     </head>
 
     <body>
         <div class="main">
+            <!-- Start of weather widget -->
             <div class="card">
                 <div class="search">
                     <input type="text" class="search-bar" placeholder="Search">
@@ -26,7 +28,7 @@
                 <div class="wind">Wind Speed: 6.2 km/h</div>
                 </div>
             </div>
-
+        <!-- Start of clock widget -->
         <div id="clock">
             <div id="hour" class="hour">00</div>
             <span>:</span>
@@ -34,6 +36,29 @@
             <span>:</span>
             <div id="seconds" class="seconds">00</div>
         </div>
+        </div>
+
+        <!-- Start of to-do widget -->
+        <div class="container">
+            <div class="header">
+                <div class="clear">
+                    <i class="fa fa-refresh"></i>
+                </div>
+                <div id="date"></div>
+            </div>
+            <div class="content">
+                <ul id="list">
+                    <li class="item">
+                        <i class="fa fa-check-circle co" job="complete" id="0"></i>
+                        <p class="text linethrough">Drink Coffee</sp>
+                        <i class="fa fa-trash-o de" job="delete" id="0"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="add-to-do">
+                <i class="fa fa-plus-circle"></i>
+                <input type="text" id="input" placeholder="Add a to-do">
+            </div>
         </div>
             
     <script src="script.js"></script>
