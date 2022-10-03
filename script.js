@@ -89,6 +89,8 @@ const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
 
+let LIST = [], id = 0;
+
 //Show Today's date
 const today = new Date();
 const options = {weekday: "long", month: "short", day: "numeric"};
@@ -105,22 +107,61 @@ function addToDo(toDo, id, done, trash){
 
     const item = `
     <li class="item">
-    <i class="fa fa-check-circle-thin co" job="complete" id="${id}"></i>
-    <p class="text">${toDo}</p>
+    <i class="fa-regular fa-circle" job="complete" id="${id}"></i>
+    <p class="text ${LINE}">${toDo}</p>
     <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
     </li>
                 `;
     const position = "beforeend";
     list.insertAdjacentHTML(position, item);
 }
-
+//fa-circle-thin
 //Add item to the list when user press the Enter key
 document.addEventListener("keyup", function(even){
     if(event.keyCode == 13){
         const toDo = input.value;
+        //if the input isn't empty
         if(toDo){
-            addToDo(toDo);
+            addToDo(toDo, id, false, false);
+            LIST.push({
+                name: toDo,
+                id: id,
+                done: false,
+                trash: false
+            });
+            id++;
         }
         input.value="";
     }
+});
+
+//complete to-do function
+function completeToDo(element){
+    element.classList.toggle(CHECK);
+    element.classList.toggle(UNCHECK);
+    element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
+
+    LIST[element.id].done = LIST[element.id].done ? false : true;
+}
+
+//remove to-do function
+function removeToDo(element){
+    element.parentNode.parentNode.removeChild(element.parentNode);
+
+    LIST[element.id].trash = true;
+}
+
+//Event listener to target the items that are created dynamically
+list.addEventListener("click", function(event){
+    const element = event.target;// will return the clicked element inside the list
+    const elementJob = element.attributes.job.value; 
+    
+    //checks if the element job has been completed or deleted
+    if(elementJob == "complete"){
+        completeToDo(element);
+    }
+    else if(elementJob == "delete"){
+        removeToDo(element);
+    }
+
 });
