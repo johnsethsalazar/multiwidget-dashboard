@@ -89,8 +89,28 @@ const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
 
-let LIST = [], id = 0;
+let LIST, id;
 
+//get item from local storage
+let data = localStorage.getItem("TODO");
+
+//Check if data is not empty
+if(data){
+    LIST = JSON.parse(data);
+    id = LIST.length;//sets the id to the last one in the list
+    loadList(LIST);//loads the list to the user interface
+}else{
+    //if data isn't empty (when it is the 1st time the user used the app)
+    LIST = [];
+    id = 0;
+}
+
+//load items to the user's interface
+function loadList(array){
+    array.forEach(function(item){
+        addToDo(item.name, item.id, item.done, item.trash);
+    });
+}
 //Show Today's date
 const today = new Date();
 const options = {weekday: "long", month: "short", day: "numeric"};
@@ -115,7 +135,7 @@ function addToDo(toDo, id, done, trash){
     const position = "beforeend";
     list.insertAdjacentHTML(position, item);
 }
-//fa-circle-thin
+
 //Add item to the list when user press the Enter key
 document.addEventListener("keyup", function(even){
     if(event.keyCode == 13){
@@ -134,6 +154,9 @@ document.addEventListener("keyup", function(even){
         input.value="";
     }
 });
+
+//add item to local storage (This code must be added where the LIST array is updated)
+localStorage.setItem("TODO", JSON.stringify(LIST));
 
 //complete to-do function
 function completeToDo(element){
@@ -163,5 +186,6 @@ list.addEventListener("click", function(event){
     else if(elementJob == "delete"){
         removeToDo(element);
     }
-
+    //add item to local storage (This code must be added where the LIST array is updated)
+localStorage.setItem("TODO", JSON.stringify(LIST));
 });
