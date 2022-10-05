@@ -111,6 +111,13 @@ function loadList(array){
         addToDo(item.name, item.id, item.done, item.trash);
     });
 }
+
+//Clearing the localStorage
+clear.addEventListener("click", function(){
+    localStorage.clear();
+    location.reload();
+});
+
 //Show Today's date
 const today = new Date();
 const options = {weekday: "long", month: "short", day: "numeric"};
@@ -127,7 +134,7 @@ function addToDo(toDo, id, done, trash){
 
     const item = `
     <li class="item">
-    <i class="fa-regular fa-circle" job="complete" id="${id}"></i>
+    <i class="fa fa-check-circle co" job="complete" id="${id}"></i>
     <p class="text ${LINE}">${toDo}</p>
     <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
     </li>
@@ -149,14 +156,14 @@ document.addEventListener("keyup", function(even){
                 done: false,
                 trash: false
             });
+            //add item to local storage (This code must be added where the LIST array is updated)
+            localStorage.setItem("TODO", JSON.stringify(LIST));
+
             id++;
         }
         input.value="";
     }
 });
-
-//add item to local storage (This code must be added where the LIST array is updated)
-localStorage.setItem("TODO", JSON.stringify(LIST));
 
 //complete to-do function
 function completeToDo(element){
@@ -187,5 +194,5 @@ list.addEventListener("click", function(event){
         removeToDo(element);
     }
     //add item to local storage (This code must be added where the LIST array is updated)
-localStorage.setItem("TODO", JSON.stringify(LIST));
+    localStorage.setItem("TODO", JSON.stringify(LIST));
 });

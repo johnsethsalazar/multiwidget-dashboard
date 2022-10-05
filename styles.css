@@ -9,7 +9,7 @@
 
 body{
     height: 100vh;
-    /* background: linear-gradient(to right, #ff9472, #f2709c); */
+
     background: url('https://source.unsplash.com/1600x900/?landscape');
     display: flex;
     align-items: center;
@@ -127,6 +127,7 @@ h1.temp{
 
 .main{
     text-align: -webkit-center;
+    margin-right: 5em;
 }
 
 
@@ -134,16 +135,16 @@ h1.temp{
 
 /* ------------ container ------------ */
 .container{
-    padding:10px;
+    /* padding:10px;
     width:380px;
-    margin:0 auto;
+    margin:0 auto; */
 }
 
 /* ------------ header ------------ */
 .header{
     width: 380px;
-    height:200px;
-    background-image: url('../img/bg2.jpg');
+    height: 65px;
+    background-color: #000000d0;
     background-size: 100% 200%;
     background-repeat: no-repeat;
     border-radius: 15px 15px 0 0;
@@ -170,7 +171,7 @@ h1.temp{
     bottom: 10px;
     left: 10px;
     color: #FFF;
-    font-size: 25px;
+    font-size: 22px;
     font-family: 'Titillium Web', sans-serif;
 }
 
@@ -239,11 +240,12 @@ h1.temp{
 /* ------------ add item ------------ */
 .add-to-do{
     position: relative;
-    width: 360px;
-    height:40px;
+    width: 380px;
+    height: 60px;
     background-color: #FFF;
     padding: 10px;
     border-top: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0px 0px 20px 20px;
 }
 .add-to-do i{
     position: absolute;
