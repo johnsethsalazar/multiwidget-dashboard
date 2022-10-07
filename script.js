@@ -1,4 +1,4 @@
-//Clock widget
+//***Clock widget***
 const hour = document.getElementById('hour');
 const minute = document.getElementById('minute');
 const seconds = document.getElementById('seconds');
@@ -35,7 +35,7 @@ const clock = setInterval(
         seconds.textContent = sec;
 }, 1000)
 
-//Weather widget
+//***Weather widget***
 let weather = {
     "apiKey": "4ed53ec99fdb4fb3c80ba66f81ff2006",
     fetchWeather: function(city){
@@ -79,7 +79,7 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event){
     }
 })
 
-//To-do Widget
+//***To-do Widget***
 const clear = document.querySelector(".clear");
 const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
@@ -196,3 +196,19 @@ list.addEventListener("click", function(event){
     //add item to local storage (This code must be added where the LIST array is updated)
     localStorage.setItem("TODO", JSON.stringify(LIST));
 });
+
+
+//***Random Quote Generator***
+const quote = document.querySelector("#quote");
+const author = document.querySelector("#author");
+
+window.addEventListener("load", getQuote);//Changes the Quotes and author texts every refresh.
+
+function getQuote(){
+    fetch("https://quotable.io/random")
+    .then(res => res.json())
+    .then(data => {
+        quote.innerHTML = `"${data.content}"`;
+        author.innerHTML = data.author;
+    })
+}
