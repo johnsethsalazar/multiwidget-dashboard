@@ -201,6 +201,7 @@ list.addEventListener("click", function(event){
 //***Random Quote Generator***
 const quote = document.querySelector("#quote");
 const author = document.querySelector("#author");
+//const btn = document.querySelector("#btn");
 
 window.addEventListener("load", getQuote);//Changes the Quotes and author texts every refresh.
 
@@ -209,6 +210,6 @@ function getQuote(){
     .then(res => res.json())
     .then(data => {
         quote.innerHTML = `"${data.content}"`;
-        author.innerHTML = data.author;
+        author.innerHTML = ` -${data.author}`;
     })
 }
