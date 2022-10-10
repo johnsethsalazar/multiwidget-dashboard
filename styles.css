@@ -304,17 +304,24 @@ h1.temp{
     display: block;
     margin: 2em 0em 0em 0em;
     text-align: left;
-    color: rgb(219 214 214);
+    /* color: rgb(219 214 214); */
     overflow: auto;
     overflow: auto;
     position: absolute;
     width: 25%;
     font-size: 15px;
     font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 
-
-
+.title{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    margin: -40em -25em 0em 0em;
+    text-align-last: center;
+    font-size: 14px;
+}
 
 
 
