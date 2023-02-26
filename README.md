@@ -6,7 +6,7 @@ A personal dashboard project that contains a clock, temperature, weather display
 ## Files
 * index.html - HTML syntax used for the project.
 * styles.css - Style CSS Syntax used for the project.
-* script.css - JavaScript Syntax used for the project.
+* script.js - JavaScript Syntax used for the project.
 
 ## Project URL
 https://multiwidget-dashboard-johnsethsalazar.netlify.app/
